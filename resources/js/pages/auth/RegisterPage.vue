@@ -2,7 +2,7 @@
   <q-page-container>
     <q-page class="flex flex-center bg-grey-2">
       <div class="row full-width justify-center">
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 q-px-md">
           <q-card class="auth-card q-pa-lg shadow-5">
             <q-card-section class="text-center">
               <div class="text-h4 text-weight-bold text-primary q-mb-md">{{ APP_NAME }}</div>
@@ -172,7 +172,8 @@ const onSubmit = async () => {
   border-radius: 12px;
   width: 100%;
   max-width: 450px;
-  margin: 16px;
+  margin: 16px auto;
+  transition: all 0.3s ease;
   
   .q-field--outlined .q-field__control {
     border-radius: 8px;
@@ -182,6 +183,13 @@ const onSubmit = async () => {
     border-radius: 8px;
     text-transform: none;
     font-weight: 500;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-card {
+    margin: 8px auto;
+    padding: 16px;
   }
 }
 </style> 

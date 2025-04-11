@@ -1,6 +1,6 @@
 <template>
   <q-dialog v-model="isOpen" persistent>
-    <q-card style="min-width: 500px">
+    <q-card class="modal-card">
       <q-card-section class="row items-center">
         <div class="text-h6">Edit Blog</div>
         <q-space />
@@ -122,4 +122,21 @@ const onSubmit = async () => {
     loading.value = false
   }
 }
-</script> 
+</script>
+
+<style lang="scss" scoped>
+.modal-card {
+  width: 100%;
+  max-width: 800px;
+  min-width: 300px;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .modal-card {
+    margin: 8px;
+    width: calc(100% - 16px);
+  }
+}
+</style> 

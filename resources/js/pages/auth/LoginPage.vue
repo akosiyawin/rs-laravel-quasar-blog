@@ -2,30 +2,64 @@
   <q-page-container>
     <q-page class="flex flex-center bg-grey-2">
       <div class="row full-width justify-center">
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 q-px-md">
           <q-card class="auth-card q-pa-lg shadow-5">
             <q-card-section class="text-center">
               <div class="text-h4 text-weight-bold text-primary q-mb-md">{{ APP_NAME }}</div>
               <div class="text-h6 text-grey-7 q-mb-lg">Welcome back! Please login to your account</div>
 
               <q-form @submit="onSubmit" class="q-gutter-y-md">
-                <q-input v-model="form.email" type="email" label="Email" :rules="[val => !!val || 'Email is required']"
-                  outlined class="q-mb-sm" :input-style="{ fontSize: '16px' }">
+                <q-input 
+                  v-model="form.email" 
+                  type="email" 
+                  label="Email" 
+                  :rules="[val => !!val || 'Email is required']"
+                  outlined 
+                  class="q-mb-sm"
+                  :input-style="{ fontSize: '16px' }"
+                >
                   <template v-slot:prepend>
                     <q-icon name="email" color="primary" />
                   </template>
                 </q-input>
 
-                <q-input v-model="form.password" type="password" label="Password"
-                  :rules="[val => !!val || 'Password is required']" outlined class="q-mb-sm"
-                  :input-style="{ fontSize: '16px' }">
+                <q-input 
+                  v-model="form.password" 
+                  type="password" 
+                  label="Password"
+                  :rules="[val => !!val || 'Password is required']" 
+                  outlined 
+                  class="q-mb-sm"
+                  :input-style="{ fontSize: '16px' }"
+                >
                   <template v-slot:prepend>
                     <q-icon name="lock" color="primary" />
                   </template>
                 </q-input>
 
-                <q-btn label="Login" type="submit" color="primary" class="full-width q-py-sm" size="lg"
-                  :loading="loading">
+                <div class="row items-center justify-between q-mb-md">
+                  <q-checkbox
+                    v-model="form.remember"
+                    label="Remember me"
+                    dense
+                  />
+                  <router-link
+                    to="/forgot-password"
+                    class="text-primary text-caption"
+                    style="text-decoration: none"
+                  >
+                    Forgot password?
+                  </router-link>
+                </div>
+
+                <q-btn 
+                  label="Login" 
+                  type="submit" 
+                  color="primary" 
+                  class="full-width q-py-sm" 
+                  size="lg"
+                  :loading="loading"
+                >
                   <template v-slot:loading>
                     <q-spinner-facebook />
                   </template>
@@ -57,7 +91,8 @@ const $q = useQuasar()
 
 const form = ref({
   email: 'test@example.com',
-  password: 'password'
+  password: 'password',
+  remember: false
 })
 
 const loading = ref(false)
@@ -93,7 +128,8 @@ const onSubmit = async () => {
   border-radius: 12px;
   width: 100%;
   max-width: 450px;
-  margin: 16px;
+  margin: 16px auto;
+  transition: all 0.3s ease;
 
   .q-field--outlined .q-field__control {
     border-radius: 8px;
@@ -103,6 +139,13 @@ const onSubmit = async () => {
     border-radius: 8px;
     text-transform: none;
     font-weight: 500;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-card {
+    margin: 8px auto;
+    padding: 16px;
   }
 }
 </style>
