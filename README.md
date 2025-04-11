@@ -59,6 +59,7 @@ DB_PASSWORD=your_password
 php artisan migrate
 php artisan db:seed
 
+php artisan passport:keys
 php artisan passport:client --personal
 ```
 
