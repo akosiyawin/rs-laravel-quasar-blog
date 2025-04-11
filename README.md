@@ -32,7 +32,11 @@ cd laravel-quasar-blog
 2. Install PHP dependencies:
 ```bash
 composer install
+
+# if you encounter an error with dependency installation:
+composer install --ignore-platform-reqs
 ```
+
 
 3. Create and configure the environment file:
 ```bash
