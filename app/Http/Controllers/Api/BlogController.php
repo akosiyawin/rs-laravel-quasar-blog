@@ -36,7 +36,7 @@ class BlogController extends Controller
         
         $blogs = $query->paginate($perPage);
             
-        return BlogResource::collection($blogs);
+        return BlogResource::collection($blogs)->withQueryString();
     }
 
     /**
