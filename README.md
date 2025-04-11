@@ -26,7 +26,7 @@ A modern blog management system built with Laravel and Quasar Framework, featuri
 1. Clone the repository:
 ```bash
 git clone https://github.com/akosiyawin/rs-laravel-quasar-blog.git
-cd laravel-quasar-blog
+cd rs-laravel-quasar-blog
 ```
 
 2. Install PHP dependencies:
